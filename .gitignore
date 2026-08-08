@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/*
+.next
+next-env.d.ts
+.yarn/install-state.gz
+.env*.local
+tsconfig.tsbuildinfo
+
+# Temp tsconfig written by `hydrogen gql check`; normally cleaned up on exit
+.hydrogen-gql-*.json
