@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { truncate } from '@/lib/utils';
 
 interface ProductImage {
@@ -68,10 +69,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       {/* Product Image */}
       <div className="relative aspect-square overflow-hidden">
         {firstImage ? (
-          <img
+          <Image
             src={firstImage.url}
             alt={firstImage.altText || product.title}
-            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.04]"
+            fill
+            sizes="(min-width: 1280px) 20vw, (min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+            className="object-contain transition-transform duration-500 group-hover:scale-[1.04]"
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center text-zinc-300">

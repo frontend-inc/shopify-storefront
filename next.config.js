@@ -3,23 +3,23 @@ export default {
   typescript: {
     ignoreBuildErrors: true,
   },
-  images: { 
-    unoptimized: true,
+  images: {
     remotePatterns: [
-    {
-      protocol: 'https',
-      hostname: 'images.unsplash.com',
-    },
-    {
-      protocol: 'https',
-      hostname: 'cdn.shopify.com',
-    },
-    {
-      protocol: 'https',
-      hostname: '**.frontend.co',
-    },
-  ], 
-  }, 
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      // Covers cdn.shopify.com plus any other Shopify-hosted image subdomain.
+      {
+        protocol: 'https',
+        hostname: '**.shopify.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.frontend.co',
+      },
+    ],
+  },
   experimental: { 
     reactDebugChannel: false 
   }, 

@@ -1,12 +1,15 @@
 'use client';
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { RiCloseLine } from '@remixicon/react';
 import { Button } from '@/components/ui/button';
 
 interface ProductImage {
   url: string;
   altText?: string | null;
+  width?: number | null;
+  height?: number | null;
 }
 
 interface ProductDetailGalleryProps {
@@ -136,11 +139,14 @@ const ProductDetailGallery: React.FC<ProductDetailGalleryProps> = ({
               isSingle ? 'sm:col-span-2' : ''
             }`}
           >
-            <img
+            <Image
               src={image.url}
               alt={image.altText || 'Product image'}
+              fill
+              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
+              priority={index === 0}
               draggable={false}
-              className="w-full h-full object-cover select-none"
+              className="object-cover select-none"
             />
           </button>
         ))}
@@ -173,11 +179,19 @@ const ProductDetailGallery: React.FC<ProductDetailGalleryProps> = ({
           onClick={close}
           className="fixed inset-0 z-100 flex items-center justify-center bg-foreground/20 backdrop-blur-md p-6 md:p-10"
         >
-          <img
+          <Image
             src={zoomedImage.url}
             alt={zoomedImage.altText || 'Product image'}
+            // Shopify gives us the intrinsic size; the square fallback only
+            // reserves space until CSS scales it down to fit the overlay.
+            width={zoomedImage.width || 1600}
+            height={zoomedImage.height || 1600}
+            sizes="100vw"
             onClick={(event) => event.stopPropagation()}
-            className="max-h-full max-w-full object-contain"
+            // w/h-auto keeps the box at the image's own ratio; without it the
+            // width+height attributes make both axes definite and the element
+            // stretches to the overlay, swallowing backdrop clicks that close it.
+            className="max-h-full max-w-full w-auto h-auto object-contain"
           />
 
           <Button

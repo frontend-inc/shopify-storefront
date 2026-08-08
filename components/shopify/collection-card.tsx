@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface CollectionImage {
   url: string;
@@ -27,10 +28,12 @@ const CollectionCard: React.FC<CollectionCardProps> = ({ collection }) => {
       {/* Collection Image */}
       <div className="relative aspect-square overflow-hidden">
         {collection.image ? (
-          <img
+          <Image
             src={collection.image.url}
             alt={collection.image.altText || collection.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+            fill
+            sizes="(min-width: 1024px) 25vw, 50vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center text-zinc-300">

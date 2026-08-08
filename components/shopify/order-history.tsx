@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { RiImageLine } from '@remixicon/react';
 import type { Customer, CustomerOrder } from '@/services/shopify/customer';
 
@@ -123,9 +124,11 @@ const OrderHistory: React.FC<OrderHistoryProps> = ({ customer }) => {
                 <li key={index} className="flex items-start gap-x-3">
                   <div className="h-16 w-16 shrink-0 overflow-hidden bg-zinc-100">
                     {node.variant?.image ? (
-                      <img
+                      <Image
                         src={node.variant.image.url}
                         alt={node.variant.image.altText || node.title}
+                        width={64}
+                        height={64}
                         className="h-full w-full object-cover"
                       />
                     ) : (

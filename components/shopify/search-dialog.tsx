@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import {
   CommandDialog,
@@ -162,9 +163,11 @@ const SearchDialog: React.FC = () => {
                     >
                       <div className="h-14 w-14 shrink-0 overflow-hidden bg-zinc-100">
                         {product.featuredImage ? (
-                          <img
+                          <Image
                             src={product.featuredImage.url}
                             alt={product.featuredImage.altText || product.title}
+                            width={56}
+                            height={56}
                             className="h-full w-full object-cover"
                           />
                         ) : (

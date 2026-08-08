@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { useCartStore, redirectToCheckout } from '@/hooks/use-shopify-cart';
 import { Button } from '@/components/ui/button';
 import { Loader } from '@/components/ui/loader';
@@ -171,9 +172,11 @@ const CartDrawer: React.FC = () => {
                         {/* Product Image */}
                         <div className="w-16 h-16 bg-zinc-100 overflow-hidden shrink-0">
                           {image ? (
-                            <img
+                            <Image
                               src={image}
                               alt={item.merchandise.product.title}
+                              width={64}
+                              height={64}
                               className="w-full h-full object-cover"
                             />
                           ) : (
