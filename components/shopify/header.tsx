@@ -50,7 +50,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({
-  storeName = 'Shop',
+  storeName = 'Logo',
   logoUrl,
   links = [
     { label: 'Shop', url: '/' },
