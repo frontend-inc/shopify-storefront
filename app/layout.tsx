@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import './globals.css';
 import { Geist, Geist_Mono } from 'next/font/google';
 import Header from '@/components/shopify/header';
@@ -15,6 +16,29 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
   variable: '--font-geist-mono',
 });
+
+// Routes only set their own `title`; the template appends the store name, and
+// everything else here is inherited unless a page overrides it.
+export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
+  title: {
+    default: site.storeName,
+    template: `%s — ${site.storeName}`,
+  },
+  description: site.description,
+  openGraph: {
+    type: 'website',
+    siteName: site.storeName,
+    title: site.storeName,
+    description: site.description,
+    url: '/',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: site.storeName,
+    description: site.description,
+  },
+};
 
 export default function RootLayout({
   children,

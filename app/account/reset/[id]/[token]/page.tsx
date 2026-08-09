@@ -1,6 +1,6 @@
 import AccountForm from '@/components/shopify/account-form';
 
-export const metadata = { title: 'Set a new password — Shop' };
+export const metadata = { title: 'Set a new password' };
 
 // Shopify's emailed reset link is /account/reset/{id}/{token}.
 export default async function Page({

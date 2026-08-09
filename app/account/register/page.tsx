@@ -1,6 +1,6 @@
 import AccountForm, { AccountFormLink } from '@/components/shopify/account-form';
 
-export const metadata = { title: 'Create account — Shop' };
+export const metadata = { title: 'Create account' };
 
 export default function Page() {
   return (

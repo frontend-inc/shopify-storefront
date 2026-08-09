@@ -1,6 +1,6 @@
 import AccountForm, { AccountFormLink } from '@/components/shopify/account-form';
 
-export const metadata = { title: 'Reset password — Shop' };
+export const metadata = { title: 'Reset password' };
 
 export default function Page() {
   return (

@@ -2,7 +2,8 @@ import { Suspense } from 'react';
 import SearchResults from '@/components/shopify/search-results';
 
 export const metadata = {
-  title: 'Search — Shop',
+  title: 'Search',
+  description: 'Search the catalogue by product name, description or type.',
 };
 
 export default function Page() {

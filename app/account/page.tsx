@@ -3,7 +3,7 @@ import OrderHistory from '@/components/shopify/order-history';
 import { getSessionToken } from '@/services/shopify/session';
 import { getCustomer } from '@/services/shopify/customer';
 
-export const metadata = { title: 'Order history — Shop' };
+export const metadata = { title: 'Order history' };
 
 export default async function Page() {
   const token = await getSessionToken();

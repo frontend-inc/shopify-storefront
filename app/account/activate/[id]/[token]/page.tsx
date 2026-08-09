@@ -1,6 +1,6 @@
 import AccountForm from '@/components/shopify/account-form';
 
-export const metadata = { title: 'Activate your account — Shop' };
+export const metadata = { title: 'Activate your account' };
 
 // Shopify's emailed activation link is /account/activate/{id}/{token}.
 export default async function Page({

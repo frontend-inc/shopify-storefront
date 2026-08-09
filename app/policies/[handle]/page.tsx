@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getShopPolicy, POLICY_HANDLES } from '@/hooks/use-shopify-policies';
+import { site } from '@/config/site';
 
 export function generateStaticParams() {
   return POLICY_HANDLES.map((handle) => ({ handle }));
@@ -13,8 +14,12 @@ export async function generateMetadata({
   const { handle } = await params;
   const policy = await getShopPolicy(handle);
 
+  if (!policy) return { title: 'Policy' };
+
   return {
-    title: policy ? `${policy.title} — Shop` : 'Policy — Shop',
+    title: policy.title,
+    description: `Read the ${policy.title.toLowerCase()} for ${site.storeName}.`,
+    alternates: { canonical: `/policies/${policy.handle}` },
   };
 }
 
