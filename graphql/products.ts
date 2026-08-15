@@ -49,7 +49,6 @@ export const ProductFragment = gql(`
           id
           title
           availableForSale
-          quantityAvailable
           selectedOptions {
             name
             value
